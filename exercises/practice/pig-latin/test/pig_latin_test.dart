@@ -134,7 +134,29 @@ void main() {
       test('string with only whitespace translates to empty string', () {
         final result = pigLatin.translate('    ');
         expect(result, equals(''));
-      });
+      }, skip: true);
+    });
+
+    group('Upper and lower case handling', () {
+      test('upper case words should remain upper case in translation', () {
+        final result = pigLatin.translate('HELLO');
+        expect(result, equals('ELLOHAY'));
+      }, skip: true);
+
+      test('mixed case word starting with cH', () {
+        final result = pigLatin.translate('cHaIr');
+        expect(result, equals('aIrcHay'));
+      }, skip: true);
+
+      test('capitalized words should remain capitalized in translation', () {
+        final result = pigLatin.translate('Something or Other');
+        expect(result, equals('Omethingsay oray Otheray'));
+      }, skip: true);
+
+      test('all other mixed case input should retain original case in translation', () {
+        final result = pigLatin.translate('lAtIn');
+        expect(result, equals('AtInlay'));
+      }, skip: true);
     });
   });
 }
