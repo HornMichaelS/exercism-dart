@@ -124,5 +124,17 @@ void main() {
         expect(result, equals('ickquay astfay unray'));
       }, skip: true);
     });
+
+    group('blank input', () {
+      test('empty string translates to empty string', () {
+        final result = pigLatin.translate('');
+        expect(result, equals(''));
+      }, skip: true);
+
+      test('string with only whitespace translates to empty string', () {
+        final result = pigLatin.translate('    ');
+        expect(result, equals(''));
+      });
+    });
   });
 }
